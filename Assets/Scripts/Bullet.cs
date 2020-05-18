@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.Translate(new Vector2(0, speed * Time.deltaTime));
-        if (transform.position.y > 6)
+        if (transform.position.y > 6 || transform.position.y < -6)
         {
             Destroy(gameObject);
         }

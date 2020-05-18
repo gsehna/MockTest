@@ -121,6 +121,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58355144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58355146}
+  - component: {fileID: 58355145}
+  m_Layer: 0
+  m_Name: Enemy Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &58355145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58355144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f856f75aa8268a43ab3aa5ad5969caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueSpaceship: {fileID: 2505075622383456141, guid: 3b77730d67d5f9f48bf95da34568a4d1,
+    type: 3}
+  orangeSpaceship: {fileID: 6357839259679515065, guid: b0cd2d4b630de914f946f58a00d8fcbe,
+    type: 3}
+  pinkBullet: {fileID: 7825639639728904416, guid: 42a154edb8a0e594f8eb091c71ce9673,
+    type: 3}
+  spawnDelay: 1
+  spawnUpperLimit: 2
+  spawnBottomLimit: 4
+--- !u!4 &58355146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58355144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 9192705064353285172, guid: efc423effd97c8a4ea234fd69287a6e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192705064353285172, guid: efc423effd97c8a4ea234fd69287a6e3,
         type: 3}
@@ -277,6 +329,12 @@ PrefabInstance:
       propertyPath: orangeBullet
       value: 
       objectReference: {fileID: 1150819706242556612, guid: ad0c026f4ccb0a3419804474e2694bf4,
+        type: 3}
+    - target: {fileID: 9192705064353285175, guid: efc423effd97c8a4ea234fd69287a6e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4650858ed688f8b47b05a955640aabbc,
         type: 3}
     - target: {fileID: 9192705064353285178, guid: efc423effd97c8a4ea234fd69287a6e3,
         type: 3}

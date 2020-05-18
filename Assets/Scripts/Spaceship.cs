@@ -20,6 +20,7 @@ public class Spaceship : MonoBehaviour
 
     public GameObject blueBullet;
     public GameObject orangeBullet;
+    public GameObject pinkBullet;
 
     private void Update()
     {
@@ -73,7 +74,19 @@ public class Spaceship : MonoBehaviour
 
     private void EnemyAction()
     {
+        transform.Translate(new Vector2(movementSpeed * Time.deltaTime, 0));
+        if (transform.position.x > 11 ||
+            transform.position.x < -11)
+        {
+            Die();
+        }
 
+        shotTimer += Time.deltaTime;
+        if (shotTimer >= shotDelay)
+        {
+            Instantiate(pinkBullet, transform.position, Quaternion.identity);
+            shotTimer = 0f;
+        }
     }
 
     public void Move(float movement)
@@ -96,8 +109,9 @@ public class Spaceship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
+            Debug.Log("Collided");
             Bullet bullet = collision.GetComponent<Bullet>();
             if (color == bullet.color)
             {
