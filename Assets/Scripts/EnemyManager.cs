@@ -50,19 +50,11 @@ public class EnemyManager : MonoBehaviour
         {
             Spaceship spaceship = Instantiate(blueSpaceship, spawnPosition, Quaternion.identity).GetComponent<Spaceship>();
             spaceship.pinkBullet = pinkBullet;
-            if (side == 1)
-            {
-                spaceship.movementSpeed *= -1;
-            }
         }
         else
         {
             Spaceship spaceship = Instantiate(orangeSpaceship, spawnPosition, Quaternion.identity).GetComponent<Spaceship>();
             spaceship.pinkBullet = pinkBullet;
-            if (side == 1)
-            {
-                spaceship.movementSpeed *= -1;
-            }
         }
     }
 }

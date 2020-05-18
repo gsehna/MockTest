@@ -18,6 +18,7 @@ public class Spaceship : MonoBehaviour
     public float shotDelay;
     private float shotTimer = 0f;
 
+
     public GameObject blueBullet;
     public GameObject orangeBullet;
     public GameObject pinkBullet;
@@ -109,10 +110,9 @@ public class Spaceship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.transform.parent.tag == "Bullet")
         {
-            Debug.Log("Collided");
-            Bullet bullet = collision.GetComponent<Bullet>();
+            Bullet bullet = collision.GetComponentInParent<Bullet>();
             if (color == bullet.color)
             {
                 Die();
