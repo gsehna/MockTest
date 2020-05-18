@@ -4,11 +4,36 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+    public enum Color
+    {
+        Pink,
+        Blue,
+        Orange
+    }
+
+    public bool isPlayer;
+    public Color color;
     public float movementSpeed;
     public float horizontalLimit;
     public float shotDelay;
+    private float shotTimer = 0f;
+
+    public GameObject blueBullet;
+    public GameObject orangeBullet;
 
     private void Update()
+    {
+        if (isPlayer)
+        {
+            PlayerAction();
+        }
+        else
+        {
+            EnemyAction();
+        }
+    }
+
+    private void PlayerAction()
     {
         // Move Left
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -20,9 +45,38 @@ public class Spaceship : MonoBehaviour
         {
             Move(movementSpeed * Time.deltaTime);
         }
+
+        if (shotTimer == 0f)
+        {
+            // Blue Bullet
+            if (Input.GetKey(KeyCode.Z))
+            {
+                Instantiate(blueBullet, transform.position, Quaternion.identity).name = "Blue Bullet";
+                shotTimer = shotDelay;
+            }
+            // Orange Bullet
+            else if (Input.GetKey(KeyCode.X))
+            {
+                Instantiate(orangeBullet, transform.position, Quaternion.identity).name = "Orange Bullet";
+                shotTimer = shotDelay;
+            }
+        }
+        else
+        {
+            shotTimer -= Time.deltaTime;
+            if (shotTimer < 0f)
+            {
+                shotTimer = 0f;
+            }
+        }
     }
 
-    private void Move(float movement)
+    private void EnemyAction()
+    {
+
+    }
+
+    public void Move(float movement)
     {
         transform.Translate(new Vector2(movement, 0));
         if (transform.position.x < -horizontalLimit)
@@ -32,6 +86,23 @@ public class Spaceship : MonoBehaviour
         else if (transform.position.x > horizontalLimit)
         {
             transform.position = new Vector2(horizontalLimit, transform.position.y);
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (color == bullet.color)
+            {
+                Die();
+            }
         }
     }
 }
