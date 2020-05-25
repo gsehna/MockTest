@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ISpaceship : MonoBehaviour
+public interface ISpaceship
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    
+    bool isPlayer { get; set; }
+    Spaceship.Color color { get; set; }
+    float movementSpeed { get; set; }
+    float horizontalLimit { get; set; }
+    float shotDelay { get; set; }
+    float shotTimer { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
