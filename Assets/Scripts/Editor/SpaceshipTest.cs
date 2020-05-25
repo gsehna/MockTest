@@ -37,10 +37,29 @@ public class SpaceshipTest
     }
 
     [Test]
-    public void HorizontalLimit_IsEight()
+    public void MovementSpeed_Is_FourPointFive()
     {
         ISpaceship spaceship = Substitute.For<ISpaceship>();
+        spaceship.movementSpeed = 4.5f;
+
+        Assert.AreEqual(spaceship.movementSpeed, 4.5f);
+    }
+
+    [Test]
+    public void HorizontalLimit_Is_Eight()
+    {
+        ISpaceship spaceship = Substitute.For<ISpaceship>();
+        spaceship.horizontalLimit = 8f;
 
         Assert.AreEqual(spaceship.horizontalLimit, 8);
+    }
+
+    [Test]
+    public void ShotDelay_Is_ZeroPointFive()
+    {
+        ISpaceship spaceship = Substitute.For<ISpaceship>();
+        spaceship.shotDelay = 0.5f;
+
+        Assert.AreEqual(spaceship.shotDelay, 0.5f);
     }
 }

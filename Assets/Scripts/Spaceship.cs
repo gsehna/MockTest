@@ -18,10 +18,14 @@ public class Spaceship : MonoBehaviour
     public float shotDelay;
     private float shotTimer = 0f;
 
-
     public GameObject blueBullet;
     public GameObject orangeBullet;
     public GameObject pinkBullet;
+
+    public void Initialize()
+    {
+
+    }
 
     private void Update()
     {
